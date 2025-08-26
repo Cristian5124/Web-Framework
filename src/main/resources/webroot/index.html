@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Framework Arep</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Web Framework</h1>
+            <p>A lightweight Java web framework for REST services and static files</p>
+        </header>
+
+        <main>
+            <section class="demo-section">
+                <h2>REST API Endpoints</h2>
+                <div class="endpoint-grid">
+                    <div class="endpoint-card">
+                        <h3>Hello Endpoint</h3>
+                        <p><strong>URL:</strong> <code>/hello?name=Cristian</code></p>
+                        <p>Returns a personalized greeting</p>
+                        <button onclick="testEndpoint('/hello?name=Cristian', 'hello-result')">Test</button>
+                        <div id="hello-result" class="result"></div>
+                    </div>
+
+                    <div class="endpoint-card">
+                        <h3>PI Value</h3>
+                        <p><strong>URL:</strong> <code>/pi</code></p>
+                        <p>Returns the mathematical constant π</p>
+                        <button onclick="testEndpoint('/pi', 'pi-result')">Test</button>
+                        <div id="pi-result" class="result"></div>
+                    </div>
+
+                    <div class="endpoint-card">
+                        <h3>Current Time</h3>
+                        <p><strong>URL:</strong> <code>/time</code></p>
+                        <p>Returns current server time in JSON format</p>
+                        <button onclick="testEndpoint('/time', 'time-result')">Test</button>
+                        <div id="time-result" class="result"></div>
+                    </div>
+
+                    <div class="endpoint-card">
+                        <h3>Multi-language Greeting</h3>
+                        <p><strong>URL:</strong> <code>/greet?name=Cristian&lang=es</code></p>
+                        <p>Returns greeting in different languages</p>
+                        <button onclick="testEndpoint('/greet?name=Cristian&lang=es', 'greet-result')">Test</button>
+                        <div id="greet-result" class="result"></div>
+                    </div>
+
+                    <div class="endpoint-card">
+                        <h3>Calculator</h3>
+                        <p><strong>URL:</strong> <code>/calc?op=add&a=5&b=3</code></p>
+                        <p>Performs mathematical operations</p>
+                        <button onclick="testEndpoint('/calc?op=add&a=5&b=3', 'calc-result')">Test</button>
+                        <div id="calc-result" class="result"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo-section">
+                <br>
+                <h2>How to Use the Framework</h2>
+                <div class="code-example">
+                    <h3>Setting up Routes and Static Files</h3>
+                    <pre><code>public static void main(String[] args) throws Exception {
+    // Configure static files location
+    WebFramework.staticfiles("/webroot");
+    
+    // Define REST routes
+    WebFramework.get("/hello", (req, resp) -> 
+        "Hello " + req.getValues("name"));
+    
+    WebFramework.get("/pi", (req, resp) -> 
+        String.valueOf(Math.PI));
+    
+    // Start the server
+    WebFramework.start();
+}</code></pre>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
