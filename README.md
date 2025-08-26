@@ -163,6 +163,8 @@ Execute the test suite:
 mvn test
 ```
 
+![alt text](src/main/resources/Tests.png)
+
 View test reports:
 ```bash
 # Reports are generated in target/surefire-reports/
